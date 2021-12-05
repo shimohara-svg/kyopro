@@ -28,12 +28,30 @@ const int MX = 220000;
 
 /**********コツとか**********/
 
+//分数の大小を比べる
 // a / b  と  c / d どちらが大きいか？
 // {a / b ,  c / d}  ->  {a * d , c * b} を比べる。(外外 内内)
 
 
 // 掛け算をしたら long long の上限を超えてしまいそうな場合
 // a * b > 1e18 ならOUT -> a > 1e18 / b とかする。
+
+
+//lower_bound と upper_bound
+/*
+  vector<int> v;
+  v.push_back(1);
+  v.push_back(3);
+  v.push_back(3);
+  v.push_back(5);
+  v.push_back(7);
+
+  int j = lower_bound(v.begin() , v.end() , 3) - v.begin();
+  cout << j << endl; // 1になる
+
+  int k = upper_bound(v.begin() , v.end() , 3) - v.begin();
+  cout << k << endl; // 3になる
+*/
 
 /*************************/
 
@@ -122,21 +140,6 @@ long long sub(long long a, long long b) {
 //v.erase(unique(v.begin(), v.end()), v.end());
 //memset(v , 0 , sizeof(v));
 //rotate(v.begin() , v.begin() + 1 , v.end()); 1ずらす
-
-/*
-  vector<int> v;
-  v.push_back(1);
-  v.push_back(3);
-  v.push_back(3);
-  v.push_back(5);
-  v.push_back(7);
-
-  int j = lower_bound(v.begin() , v.end() , 3) - v.begin();
-  cout << j << endl; // 1になる
-
-  int k = upper_bound(v.begin() , v.end() , 3) - v.begin();
-  cout << k << endl; // 3になる
-*/
 
 
 int main() {
