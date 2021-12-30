@@ -53,6 +53,17 @@ const int MX = 220000;
   cout << k << endl; // 3になる
 */
 
+
+//90度回転
+
+/*
+for (int i = 0; i < h; i++) {
+  for (int j = 0; j < w; j++) {
+    ans[i][j] = c[h - 1 - j][i];
+  }
+}
+*/
+
 /*************************/
 
 //ルートNで素数チェック
@@ -178,6 +189,26 @@ int main() {
   for (int i = 0; i < h; i++) {
     for (int j = 0; j < w; j++) {
       cin >> c[i][j];
+    }
+  }
+  queue<pair<int, int> > q;
+  vector<vector<int> > dist(h, vector<int>(w, INF));
+  vector<vector<bool> > used(h, vector<bool>(w, false));
+  q.push(make_pair(0, 0));
+  used[0][0] = true;
+  while (!q.empty()) {
+    int y = q.front().first;
+    int x = q.front().second;
+    q.pop();
+    for (int k = 0; k < 4; k++) {
+      int ny = y + dy[k];
+      int nx = x + dx[k];
+      if (ny < 0 || nx < 0 || ny >= h || nx >= w) continue;
+      if (used[ny][nx]) continue;
+      if (dist[ny][nx] <= dist[y][x] + 1) continue;
+      used[ny][nx] = true;
+      dist[ny][nx] = dist[y][x] + 1;
+      q.push(make_pair(ny, nx));
     }
   }
   */
