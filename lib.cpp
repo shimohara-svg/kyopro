@@ -100,9 +100,11 @@ long long gcd(long long a , long long b) {
   if (a % b == 0) return b;
   else return gcd(b , a % b);
 }
- 
+
 long long lcm(long long a , long long b) {
-  return a / gcd(a , b) * b;
+  if (a < b) swap(a, b);
+  if (b == 0) return a;
+  else return a / gcd(a , b) * b;
 }
 
 int keta (long long x) {
@@ -216,12 +218,14 @@ int main() {
   //素数
   /*
   vector<bool> is_prime(3000001 , true);
+  vector<int> p;
   is_prime[0] = is_prime[1] = false;
   for (int i = 2; i <= 3000000; i++) {
     if(is_prime[i]) {
       for (int j = 2 * i; j <= 3000000; j += i) {
         is_prime[j] = false;
       }
+      p.push_back(i);
     }
   }
   */
