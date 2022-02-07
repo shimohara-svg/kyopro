@@ -150,6 +150,13 @@ long long sub(long long a, long long b) {
   return ret;
 }
 
+//modの割り算
+//フェルマーの小定量：a^p-1 = 1 (mod p) -> a*a^p-2 = 1 -> a^p-2は1/aみたいになって逆元になる
+long long inv(long long x){
+  return modpow(x, mod - 2);
+}
+
+
 //v.erase(unique(v.begin(), v.end()), v.end());
 //memset(v , 0 , sizeof(v));
 //rotate(v.begin() , v.begin() + 1 , v.end()); 1ずらす
@@ -185,9 +192,9 @@ int main() {
   
   //グリッド
   /*
-  int h , w;
+  int h, w;
   cin >> h >> w;
-  vector<vector<char> > c(h , vector<char>(w));
+  vector<vector<char> > c(h, vector<char>(w));
   for (int i = 0; i < h; i++) {
     for (int j = 0; j < w; j++) {
       cin >> c[i][j];
