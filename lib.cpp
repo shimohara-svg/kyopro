@@ -95,16 +95,16 @@ void chmax(T &a, T &b) {
 }
 
 long long gcd(long long a , long long b) {
-  if (a < b) swap(a , b);
-  if (b == 0) return a;
-  if (a % b == 0) return b;
-  else return gcd(b , a % b);
-}
-
-long long lcm(long long a , long long b) {
   if (a < b) swap(a, b);
   if (b == 0) return a;
-  else return a / gcd(a , b) * b;
+  if (a % b == 0) return b;
+  else return gcd(b, a % b);
+}
+
+long long lcm(long long a, long long b) {
+  if (a < b) swap(a, b);
+  if (b == 0) return a;
+  else return a / gcd(a, b) * b;
 }
 
 int keta (long long x) {
@@ -116,7 +116,7 @@ int keta (long long x) {
   return ret;
 }
 
-long long modpow (long long x , long long p) {
+long long modpow (long long x, long long p) {
   long long ret = 1;
   while (p) {
     if (p % 2) {
@@ -130,8 +130,8 @@ long long modpow (long long x , long long p) {
   return ret;
 }
 
-vector<long long> fact(MX , 0);
-vector<long long> factinv(MX , 0);
+vector<long long> fact(MX, 0);
+vector<long long> factinv(MX, 0);
  
 void calc_fact () {
   fact[0] = 1;
@@ -139,7 +139,7 @@ void calc_fact () {
   for (int i = 0; i < MX; i++) factinv[i] = modpow(fact[i], mod - 2);
 }
  
-long long nCk (long long n , long long k) {
+long long nCk (long long n, long long k) {
   return fact[n] * factinv[k] % mod * factinv[n - k] % mod;
 }
 
