@@ -116,6 +116,22 @@ int keta (long long x) {
   return ret;
 }
 
+long long nCm(int n, int m) {
+  if (m == 0 || n == 0 || m == n) {
+    return 1;
+  }
+  long long a = 1, b = 1;
+  for (int i = m; i >= 1; i--) {
+    b *= i;
+    a *= i + n - m;
+    if (a % b == 0) {
+      a /= b;
+      b = 1;
+    }
+  }
+  return a;
+}
+
 long long modpow (long long x, long long p) {
   long long ret = 1;
   while (p) {
@@ -247,4 +263,10 @@ int main() {
   return 0;
 }
 
+
+
+
+
+
 //% /usr/local/bin/g++ a.cpp
+//t4m5vfmntw6uq2vnhyfc@docomo.ne.jp
