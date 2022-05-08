@@ -7,8 +7,9 @@
 #include <cmath>
 #include <iomanip>
 #include <set>
-#include <stdio.h>
-#include <string.h>
+#include <cstdio>
+#include <string>
+#include <cctype>
 
 using namespace std;
 
@@ -184,6 +185,8 @@ int main() {
   //ios::sync_with_stdio(false);
   //cout << fixed << setprecision(15);
   
+
+
   //グラフ
   /*
   vector<vector<int> > g(n);
@@ -194,6 +197,21 @@ int main() {
     b--;
     g[a].push_back(b);
     g[b].push_back(a);
+  }
+  */
+
+
+  //グラフ2
+  /*
+  int n, m;
+  cin >> n >> m;
+  vector<vector<pair<int, int> > > g(n);
+  for (int i = 0; i < m; i++) {
+    int a, b, c;
+    cin >> a >> b >> c;
+    a--;
+    b--;
+    g[a].push_back(make_pair(c, b));
   }
   */
 
@@ -210,29 +228,45 @@ int main() {
   /*
   int h, w;
   cin >> h >> w;
+  int sx, sy, gx, gy;
   vector<vector<char> > c(h, vector<char>(w));
   for (int i = 0; i < h; i++) {
     for (int j = 0; j < w; j++) {
       cin >> c[i][j];
+      if (c[i][j] == 'S') {
+        sy = i;
+        sx = j;
+      }
+      if (c[i][j] == 'G') {
+        gy = i;
+        gx = j;
+      }
     }
   }
+
   queue<pair<int, int> > q;
-  vector<vector<int> > dist(h, vector<int>(w, INF));
+  vector<vector<int> > d(h, vector<int>(w, inf));
   vector<vector<bool> > used(h, vector<bool>(w, false));
-  q.push(make_pair(0, 0));
-  used[0][0] = true;
+  q.push(make_pair(sy, sx));
+  used[sy][sx] = true;
+  d[sy][sx] = 0;
   while (!q.empty()) {
     int y = q.front().first;
     int x = q.front().second;
     q.pop();
+    if (y == gy && x == gx) {
+      cout << d[gy][gx] << endl;
+      return 0;
+    }
     for (int k = 0; k < 4; k++) {
       int ny = y + dy[k];
       int nx = x + dx[k];
       if (ny < 0 || nx < 0 || ny >= h || nx >= w) continue;
       if (used[ny][nx]) continue;
-      if (dist[ny][nx] <= dist[y][x] + 1) continue;
+      if (d[ny][nx] <= d[y][x] + 1) continue;
+      if (c[ny][nx] == '#') continue;
       used[ny][nx] = true;
-      dist[ny][nx] = dist[y][x] + 1;
+      d[ny][nx] = d[y][x] + 1;
       q.push(make_pair(ny, nx));
     }
   }
@@ -270,3 +304,62 @@ int main() {
 
 //% /usr/local/bin/g++ a.cpp
 //t4m5vfmntw6uq2vnhyfc@docomo.ne.jp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
