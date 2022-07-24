@@ -14,7 +14,9 @@
 using namespace std;
 
 const long long mod = 1000000007;
+const long long inv2 = 500000004;
 //const long long mod = 998244353;
+//const long long inv2 = 499122177;
 const long double PI = 3.1415926535897932384626;
 const int inf = 1001001001;
 const long long INF = 1001001001001001001LL;
@@ -299,67 +301,6 @@ int main() {
 
 
 
-
-
-
 //% /usr/local/bin/g++ a.cpp
 //t4m5vfmntw6uq2vnhyfc@docomo.ne.jp
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
